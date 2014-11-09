@@ -1,9 +1,9 @@
 
 int forwardInPin = A0;                         // variable forwardInPin to analog input 0
 int leftOutPin = 8;                            // variable leftOutPin to digital 8
-int rightOutPin = 12;                          // variable rightOutPin to digital 12
+int rightOutPin = 7;                          // variable rightOutPin to digital 12
 int led = 13;                                  // varaible led to digital 13
-int turn90 = 428;                              // variable turn90
+int turn90 = 500;                              // variable turn90
 int moveTime = 500;                            // variable moveTime
 int waitTime = 1000;                           // variable waitTime
 int forwardPower = 255;                        // variable forwardPower
@@ -23,8 +23,11 @@ void loop() //list of instructions
 {   
     moveForward();
     turnRight();
+    stopMovement();
+    delay(waitTime);
     indicatorLight();
     indicatorLight();
+    delay(waitTime);
 }
 
 void moveForward() //move forward 1 foot
@@ -51,7 +54,7 @@ void turnLeft() // turn left 90 degrees
     delay(turn90);                             // time of turn 
 }
 
-void stop() // stop robot
+void stopMovement() // stop robot
 {
     analogWrite(forwardInPin, 0);             // turns off forward power
     digitalWrite(leftOutPin, LOW);            // left stops pulling in
