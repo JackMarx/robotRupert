@@ -1,3 +1,5 @@
+## This was modified to work with the Arduino Wifi Shield. We were using an Arduino Uno as the base. 
+
 # Arduino Pusher Client, a Pusher client developed for use on Arduino devices
 Blog: [World Domination Using Arduinos And Websockets](http://kevinrohling.wordpress.com/2011/09/14/world-domination-using-arduinos-and-websockets)
 
