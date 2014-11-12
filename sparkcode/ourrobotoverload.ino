@@ -45,7 +45,7 @@ int robotControl(String command)
     int result = robotAction(command[i]);
     if(result == -1)
     {
-      return -1;
+        return -1;
     }
   }
   return 1;
@@ -97,7 +97,7 @@ int robotAction(char command)
     digitalWrite(leftMotorEnable,HIGH);
     digitalWrite(rightMotorEnable,HIGH);
 
-    delay(1250); // 90 Degrees, or angle times 13.8889
+    delay(833.33); // 90 Degrees, or angle times 13.8889
     return 1;
   }
 
@@ -109,12 +109,39 @@ int robotAction(char command)
     digitalWrite(leftMotorEnable,HIGH);
     digitalWrite(rightMotorEnable,HIGH);
 
-    delay(1250); // 90 Degrees
+    delay(833.33); // 90 Degrees
+    return 1;
+  }
+  
+    if(command == 'C') //CELEBRATE
+  {
+    digitalWrite(leftMotorEnable,HIGH);
+    digitalWrite(rightMotorEnable,HIGH);
+
+    digitalWrite(leftMotorDir,LOW);
+    digitalWrite(rightMotorDir,HIGH);
+    
+    delay(833.33);
+
+    digitalWrite(leftMotorDir,HIGH);
+    digitalWrite(rightMotorDir,LOW);
+
+    delay(833.33);
+    
+    digitalWrite(leftMotorDir,LOW);
+    digitalWrite(rightMotorDir,HIGH);
+    
+    delay(833.33);
+
+    digitalWrite(leftMotorDir,HIGH);
+    digitalWrite(rightMotorDir,LOW);
+
+    delay(4166.65);
+    
+    
     return 1;
   }
 
   // If none of the commands were executed, return false
   return -1;
 }
-
-
